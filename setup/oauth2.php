@@ -35,13 +35,15 @@
     $creds = json_decode(curl_exec($curl));
     curl_close($curl);
 
-    $save_string = "<?php"
+    $oauth2_creds = "<?php"
+                ."\n\$oauth_client_id = \"{$client_id}\";"
+                ."\n\$oauth_client_secret = \"{$client_secret}\";"
                 ."\n\$oauth_access_token = \"{$creds->access_token}\";"
                 ."\n\$oauth_refresh_token = \"{$creds->refresh_token}\";"
                 ."\n\$oauth_token_expiration = ".(@mktime() + $creds->expires_in).";"
                 ."\n?>";
 
-    file_put_contents("../inc/oauth2.inc.php",$save_string);
+    file_put_contents("../inc/oauth2_creds.inc.php",$oauth2_creds);
     unlink("client_id.txt");
     unlink("client_secret.txt");
 
