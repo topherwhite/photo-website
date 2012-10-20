@@ -8,7 +8,7 @@
     foreach ($imgs as $img) {
       $i = picasa_photo($img);
       echo $i["orig"]."<br />";
-      picasa_image_data($i["orig"]);
+      picasa_fetch_data($i["orig"],"jpg");
     }
   }
 
