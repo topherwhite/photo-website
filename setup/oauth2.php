@@ -45,12 +45,12 @@
     curl_close($curl);
 
     $oauth2_creds = "<?php"
-                ."\n\$oauth_client_id = \"{$client_id}\";"
-                ."\n\$oauth_client_secret = \"{$client_secret}\";"
-                ."\n\$oauth_user_name = \"{$user_name}\";"
-                ."\n\$oauth_access_token = \"{$creds->access_token}\";"
-                ."\n\$oauth_refresh_token = \"{$creds->refresh_token}\";"
-                ."\n\$oauth_token_expiration = ".(@mktime() + $creds->expires_in).";"
+                ."\n\$GLOBALS['oauth_client_id'] = \"{$client_id}\";"
+                ."\n\$GLOBALS['oauth_client_secret'] = \"{$client_secret}\";"
+                ."\n\$GLOBALS['oauth_user_name'] = \"{$user_name}\";"
+                ."\n\$GLOBALS['oauth_access_token'] = \"{$creds->access_token}\";"
+                ."\n\$GLOBALS['oauth_refresh_token'] = \"{$creds->refresh_token}\";"
+                ."\n\$GLOBALS['oauth_token_expiration'] = ".(@mktime() + $creds->expires_in).";"
                 ."\n?>";
 
     file_put_contents("../inc/oauth2_creds.inc.php",$oauth2_creds);
