@@ -10,8 +10,12 @@
     return $uri;
   }
 
+  function data_cache_id($uri) {
+    return md5(str_replace("&access_token=".oauth2_access_token(),"",$uri));
+  }
+
   function picasa_fetch_data($uri,$format="xml") {
-    $cache = "../cache/".md5(str_replace("&access_token=".oauth2_access_token(),"",$uri)).".{$format}";
+    $cache = "../cache/".data_cache_id($uri).".{$format}";
     if (!file_exists($cache)) {
       file_put_contents($cache,file_get_contents($uri));
     }
