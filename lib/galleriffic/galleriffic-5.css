@@ -130,6 +130,8 @@ div.navigation {
 	float: left;
 	position: relative;
 	left: -50%;
+	height:82px;
+	overflow:hidden;
 }
 div.navigation a.pageLink {
 	display: block;

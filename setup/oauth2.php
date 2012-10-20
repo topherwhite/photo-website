@@ -54,6 +54,7 @@
                 ."\n?>";
 
     file_put_contents("../inc/oauth2_creds.inc.php",$oauth2_creds);
+    chmod("../inc/oauth2_creds.inc.php",777);
     unlink("client_id.txt");
     unlink("client_secret.txt");
     unlink("user_name.txt");

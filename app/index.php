@@ -24,52 +24,13 @@
 <script type="text/javascript" src="../js/scripts.js"></script>
 </head>
 <body>
+  
   <div id="page">
     <div id="container">
-      <h1><a href="index.html">Galleriffic</a></h1>
-      <h2>Alternate layout using custom previous/next page controls</h2>
-
-      <div class="navigation-container">
-        <div id="thumbs" class="navigation">
-          <a class="pageLink prev" style="visibility: hidden;" href="#" title="Previous Page"></a>
-
-          <ul class="thumbs noscript">
-
-<?php
-  $albs = fetch_albums("Slideshow");
-  foreach ($albs as $alb) {
-    $imgs = fetch_single_album($alb["gphoto:id"]["value"]);
-    foreach ($imgs as $img) {
-      $i = picasa_photo($img);
-      picasa_fetch_data($i["orig"],"jpg");
-      echo galleriffic_photo($i);
-    }
-  }
-?>
-
-
-          </ul>
-
-          <a class="pageLink next" style="visibility: hidden;" href="#" title="Next Page"></a>
-
-        </div>
-      </div>
-
-      <div class="content">
-        <div class="slideshow-container">
-          <div id="controls" class="controls"></div>
-          <div id="loading" class="loader"></div>
-          <div id="slideshow" class="slideshow"></div>
-        </div>
-        <div id="caption" class="caption-container">
-          <div class="photo-index"></div>
-        </div>
-      </div>
-
-      <div style="clear: both;"></div>
-
+      <?php echo galleriffic_album("Portfolio"); ?>
     </div>
   </div>
+
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));

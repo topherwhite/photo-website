@@ -17,8 +17,8 @@ $(document).ready(function($) {
 
   var gallery = $('#thumbs').galleriffic({
     delay:                     2500,
-    numThumbs:                 8,
-    preloadAhead:              8,
+    numThumbs:                 10,
+    preloadAhead:              0,
     enableTopPager:            false,
     enableBottomPager:         false,
     imageContainerSel:         '#slideshow',
@@ -64,6 +64,8 @@ $(document).ready(function($) {
 
       this.fadeTo('fast', 1.0);
     }
+
+
   });
 
   gallery.find('a.prev').click(function(e) {

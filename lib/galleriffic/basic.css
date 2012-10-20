@@ -1,14 +1,4 @@
-html, body {
-	margin:0;
-	padding:0;
-}
-body{
-	text-align: center;
-	font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Helvetica, Arial, sans-serif;
-	background-color: #eee;
-	color: #444;
-	font-size: 75%;
-}
+
 a{
 	color: #27D;
 	text-decoration: none;

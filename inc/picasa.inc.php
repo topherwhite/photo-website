@@ -17,7 +17,7 @@
   function picasa_fetch_data($uri,$format="xml") {
     $cache = "../cache/".data_cache_id($uri).".{$format}";
     if (!file_exists($cache)) {
-      file_put_contents($cache,file_get_contents($uri));
+      @file_put_contents($cache,file_get_contents($uri));
     }
     return file_get_contents($cache);
   }
