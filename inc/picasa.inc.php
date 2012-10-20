@@ -41,7 +41,8 @@
       "144"=>$entry["media:group"]["media:thumbnail"][1]["attr"]["url"],
       "288"=>$entry["media:group"]["media:thumbnail"][2]["attr"]["url"],
       "caption"=>$entry["media:group"]["media:description"]["value"],
-      "filename"=>$entry["media:group"]["media:title"]["value"]
+      "filename"=>$entry["media:group"]["media:title"]["value"],
+      "id"=>md5($entry["media:group"]["media:content"]["attr"]["url"])
       );
   }
 

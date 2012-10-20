@@ -1,3 +1,5 @@
 .DS_Store
 inc/oauth2_creds.inc.php
+inc/app.inc.php
 cache/*
+img/app-watermark.png
