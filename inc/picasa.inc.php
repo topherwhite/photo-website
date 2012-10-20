@@ -10,27 +10,45 @@
     return $uri;
   }
 
-  function picasa_data($uri,$title_namespace="") {
-    $entries = xml2array(file_get_contents($uri), $get_attributes=1);
+  function picasa_fetch_data($uri,$format="xml") {
+    $cache = "../cache/".md5(str_replace("&access_token=".oauth2_access_token(),"",$uri)).".{$format}";
+    if (!file_exists($cache)) {
+      file_put_contents($cache,file_get_contents($uri));
+    }
+    return file_get_contents($cache);
+  }
+
+  function picasa_entries($uri,$title_namespace="",$title_filter="") {
+    $entries = xml2array(picasa_fetch_data($uri,"xml"), $get_attributes=1);
     $rtrn = array();
     foreach ($entries['feed']['entry'] as $entry) {
-      if (empty($title_namespace) || (strtolower(substr($entry['title']['value'],0,1+strlen($title_namespace))) == strtolower($title_namespace)."_")) {
+      if ( (empty($title_namespace) && empty($title_filter))
+        || (strtolower(substr($entry['title']['value'],0,1+strlen($title_namespace)+strlen($title_filter))) == strtolower("{$title_namespace}_{$title_filter}"))) {
         $rtrn[count($rtrn)] = $entry;
       }
     }
     return $rtrn;
   }
 
-  function fetch_albums() {
-    
+  function picasa_photo($entry) {
+    return array(
+      "orig"=>$entry["media:group"]["media:content"]["attr"]["url"],
+      "72"=>$entry["media:group"]["media:thumbnail"][0]["attr"]["url"],
+      "144"=>$entry["media:group"]["media:thumbnail"][1]["attr"]["url"],
+      "288"=>$entry["media:group"]["media:thumbnail"][2]["attr"]["url"],
+      "caption"=>$entry["media:group"]["media:description"]["value"],
+      "filename"=>$entry["media:group"]["media:title"]["value"]
+      );
+  }
+
+  function fetch_albums($title_filter="") {
     $uri = picasa_api_url()."&kind=album";
-    return picasa_data($uri,$title_namespace="Site");
+    return picasa_entries($uri,"Site",$title_filter);
   }
 
   function fetch_single_album($album_id) {
     $uri = picasa_api_url("/albumid/{$album_id}")."&kind=photo";
-    return picasa_data($uri);
+    return picasa_entries($uri);
   }
-
 
 ?>
