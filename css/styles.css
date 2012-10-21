@@ -1,1 +1,5 @@
 body { background-color:black; font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif; }
+
+/*div.controls { display:none; }*/
+div.ss-controls { display:none; }
+div.title-bar { width:900px; position:relative; clear:both; margin-left:auto; margin-right:auto; }

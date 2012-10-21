@@ -11,10 +11,6 @@ $(document).ready(function($) {
     exemptionSelector: '.selected'
   });
 
-
-
-
-
   var gallery = $('#thumbs').galleriffic({
     delay:                     2500,
     numThumbs:                 10,
@@ -37,34 +33,26 @@ $(document).ready(function($) {
     autoStart:                 false,
     syncTransitions:           true,
     defaultTransitionDuration: 900,
-    onSlideChange:             function(prevIndex, nextIndex) {
-      // 'this' refers to the gallery, which is an extension of $('#thumbs')
+    onSlideChange: function(prevIndex, nextIndex) {
       this.find('ul.thumbs').children()
         .eq(prevIndex).fadeTo('fast', onMouseOutOpacity).end()
         .eq(nextIndex).fadeTo('fast', 1.0);
-
-      // Update the photo index display
       this.$captionContainer.find('div.photo-index')
         .html('Photo '+ (nextIndex+1) +' of '+ this.data.length);
     },
-    onPageTransitionOut:       function(callback) {
+    onPageTransitionOut: function(callback) {
       this.fadeTo('fast', 0.0, callback);
     },
-    onPageTransitionIn:        function() {
+    onPageTransitionIn: function() {
       var prevPageLink = this.find('a.prev').css('visibility', 'hidden');
       var nextPageLink = this.find('a.next').css('visibility', 'hidden');
-      
-      // Show appropriate next / prev page links
       if (this.displayedPage > 0)
         prevPageLink.css('visibility', 'visible');
-
       var lastPage = this.getNumPages() - 1;
       if (this.displayedPage < lastPage)
         nextPageLink.css('visibility', 'visible');
-
       this.fadeTo('fast', 1.0);
     }
-
 
   });
 
@@ -79,11 +67,7 @@ $(document).ready(function($) {
   });
 
   function pageload(hash) {
-    if(hash) {
-      $.galleriffic.gotoImage(hash);
-    } else {
-      gallery.gotoIndex(0);
-    }
+    if(hash) { $.galleriffic.gotoImage(hash); } else { gallery.gotoIndex(0); }
   }
 
   $.historyInit(pageload, "advanced.html");

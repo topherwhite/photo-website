@@ -24,7 +24,7 @@ $mkImg->Message($txt['msg']);
 
 $mkImg->Angle(0);
 
-$mkImg->Font("../inc/papyrus");
+$mkImg->Font("../fonts/optima.bold.ttf");
 
 $mkImg->FontSize($txt['siz']);
 

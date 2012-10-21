@@ -22,7 +22,7 @@
       ."</div>"
       ."</div>"
 
-      ."<div class=\"content\">"
+      ."<div class=\"content\" style=\"display:none;\">"
         ."<div class=\"slideshow-container\">"
           ."<div id=\"controls\" class=\"controls\"></div>"
           ."<div id=\"loading\" class=\"loader\"></div>"

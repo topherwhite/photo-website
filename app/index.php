@@ -9,6 +9,8 @@
 </head>
 <body>
   
+  <?php require_once("../inc/html/header.inc.php"); ?>
+
   <div id="page">
     <div id="container">
       <?php echo galleriffic_album("Portfolio"); ?>
