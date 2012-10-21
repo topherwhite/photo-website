@@ -52,7 +52,7 @@
               ."<div class=\"image-title\">{$entry['caption']}</div>"
               ."<div class=\"image-desc\">{$entry['filename']}</div>"
               ."<div class=\"download\">"
-                ."<a href=\"javascript:alert('Pay with Stripe')\">Order High-Quality Print</a>"
+                ."<a href=\"javascript:alert('Soon you will be able to order high-quality prints. This feature will be available shortly.')\">Order High-Quality Print</a>"
               ."</div>"
             ."</div>"
             ."</li>";

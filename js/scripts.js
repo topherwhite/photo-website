@@ -38,7 +38,7 @@ $(document).ready(function($) {
         .eq(prevIndex).fadeTo('fast', onMouseOutOpacity).end()
         .eq(nextIndex).fadeTo('fast', 1.0);
       this.$captionContainer.find('div.photo-index')
-        .html('Photo '+ (nextIndex+1) +' of '+ this.data.length);
+        .html('Item '+ (nextIndex+1) +' of '+ this.data.length);
     },
     onPageTransitionOut: function(callback) {
       this.fadeTo('fast', 0.0, callback);

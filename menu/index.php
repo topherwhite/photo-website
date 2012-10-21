@@ -17,6 +17,12 @@
   
   <?php require_once("../inc/html/header.inc.php"); ?>
 
+  <?php require_once("../inc/html/navigation.inc.php"); ?>
+
+  <div class="photo-website-social-buttons" style="width:400px;">
+    <?php require_once("../inc/html/social.inc.php"); ?>
+  </div>
+
   <div id="page">
     <div id="container" class="photo-website-menu">
       <?php echo galleriffic_album("Slideshow",800,600); ?>

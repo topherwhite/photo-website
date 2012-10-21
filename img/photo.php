@@ -37,21 +37,23 @@
     ImageCopyResampled($final,$orig,0,0,$crop_x,$crop_y,$x,$y,$crop_w,$crop_h);
     ImageDestroy($orig);
 
-    // put watermark on resampled image
-    $mark_in = ImageCreateFromPNG("../img/app-watermark.png");
-    ImageColorTransparent($mark_in, ImageColorAt($mark_in, 1, 1));
-    $mark_x = ImagesX($mark_in);
-    $mark_y = ImagesY($mark_in);
-    $mark_width = 0.75;
-    $mark_ref = $x; if ($y < $x) { $mark_ref = $y; }
-    $mark_final = ImageCreateTrueColor(round($mark_ref*$mark_width),round($mark_ref*$mark_width*($mark_y/$mark_x)));
-    $mark_final_x = ImagesX($mark_final);
-    $mark_final_y = ImagesY($mark_final);
-    ImageCopyResampled($mark_final,$mark_in,0,0,0,0,$mark_final_x,$mark_final_y,$mark_x,$mark_y);
-    ImageDestroy($mark_in);
-    ImageColorTransparent($mark_final, ImageColorAt($mark_final, 1, 1));
-    ImageCopyMerge($final,$mark_final,$x-$mark_final_x,$y-$mark_final_y,0,0,$mark_x,$mark_y,100);
-    ImageDestroy($mark_final);
+    // if image is large enough, put watermark on resampled image
+    if ($x > 200) {
+        $mark_in = ImageCreateFromPNG("../img/app-watermark.png");
+        ImageColorTransparent($mark_in, ImageColorAt($mark_in, 1, 1));
+        $mark_x = ImagesX($mark_in);
+        $mark_y = ImagesY($mark_in);
+        $mark_width = 0.75;
+        $mark_ref = $x; if ($y < $x) { $mark_ref = $y; }
+        $mark_final = ImageCreateTrueColor(round($mark_ref*$mark_width),round($mark_ref*$mark_width*($mark_y/$mark_x)));
+        $mark_final_x = ImagesX($mark_final);
+        $mark_final_y = ImagesY($mark_final);
+        ImageCopyResampled($mark_final,$mark_in,0,0,0,0,$mark_final_x,$mark_final_y,$mark_x,$mark_y);
+        ImageDestroy($mark_in);
+        ImageColorTransparent($mark_final, ImageColorAt($mark_final, 1, 1));
+        ImageCopyMerge($final,$mark_final,$x-$mark_final_x,$y-$mark_final_y,0,0,$mark_x,$mark_y,100);
+        ImageDestroy($mark_final);
+    }
 
     // output final image
     ImageJPEG($final,"",80);

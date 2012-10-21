@@ -17,6 +17,14 @@
   
   <?php require_once("../inc/html/header.inc.php"); ?>
 
+    
+    <div class="title-bar album-title-bar" style="width:<?php echo $width; ?>px;">
+      <a href="../menu/">
+        <div class="back-button"></div>
+      </a>
+      <div class="album-title">Portfolio</div>
+    </div>  
+  
   <div id="page">
     <div id="container" class="photo-website-album">
       <?php echo galleriffic_album("Portfolio",500); ?>

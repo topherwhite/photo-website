@@ -1,14 +1,26 @@
 body { background-color:black; font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif !important; }
 
+a { color:#27D; }
+
 div#page { border:0; position:relative; top:-15px; }
 div.ss-controls { display:none; }
 div.title-bar, div.contentII { position:relative; clear:both; margin-left:auto; margin-right:auto; }
-div.title-bar { height:68px; margin-top:15px; }
-div.contentII { height:85px; z-index:1002; padding:0; }
+div.title-bar { height:68px; margin-top:15px; z-index:1002; }
+div.album-title-bar { height:42px; margin-top:0px; z-index:1002; }
+div.album-title-bar div.back-button { position:absolute; left:0px; top:0px; height:100%; width:130px; background-image:url(../img/text.php?str=18_130_cccccc_000000_‹*menu); }
+div.album-title-bar div.back-button:hover { background-image:url(../img/text.php?str=18_130_444444_000000_‹*menu); }
+div.album-title-bar div.album-title { position:absolute; left:130px; top:4px; height:50px; width:660px; text-align:right; font-weight:bold; font-size:32px; }
+
+div.contentII { height:85px; z-index:1003; padding:0; position:relative; top:20px; }
 
 div.slideshow-mask { display:none; position:relative; width:100%; height:100%; z-index:1001; border:0; }
 
+div.photo-website-social-buttons { position:absolute; z-index:1002; left:50%; top:200px; width:0px; height:0px; border:0; overflow:visible; }
+div.photo-website-social-buttons { padding-left:150px; }
+
 div.photo-website-album div.navigation-container { }
+div.photo-website-album div.photo-index { position:relative; top:-25px; width:88%; text-align:right; }
+div.photo-website-album div.download { border:0; }
 
 div.photo-website-menu { position:relative; left:30px; }
 div.photo-website-menu div.navigation-container { display:none; }
