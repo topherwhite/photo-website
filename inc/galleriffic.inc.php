@@ -44,13 +44,14 @@
     $orig = "../img/photo.php?id={$entry['id']}.{$size}"; if (!empty($height)) { $orig .= ".{$height}"; }
     $thmb = "../img/photo.php?id={$entry['id']}.75.75";
     picasa_fetch_data($entry["orig"],"jpg");
+    $date = @mktime(0,0,0,intval(substr($entry['filename'],2,2)),intval(substr($entry['filename'],4,2)),2000+intval(substr($entry['filename'],0,2)));
     $html = "<li>"
             ."<a class=\"thumb\" name=\"{$entry['id']}\" href=\"{$orig}\" title=\"{$caption}\">"
               ."<img src=\"{$thmb}\" alt=\"{$caption}\" />"
             ."</a>"
             ."<div class=\"caption\">"
               ."<div class=\"image-title\">{$entry['caption']}</div>"
-              ."<div class=\"image-desc\">{$entry['filename']}</div>"
+              ."<div class=\"image-desc\">".@date("F j, Y",$date)."</div>"
               ."<div class=\"download\">"
                 ."<a href=\"javascript:alert('Soon you will be able to order high-quality prints. This feature will be available shortly.')\">Order High-Quality Print</a>"
               ."</div>"
