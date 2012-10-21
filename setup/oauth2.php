@@ -53,8 +53,7 @@
                 ."\n\$GLOBALS['oauth_token_expiration'] = ".(@mktime() + $creds->expires_in).";"
                 ."\n?>";
 
-    file_put_contents("../inc/oauth2_creds.inc.php",$oauth2_creds);
-    chmod("../inc/oauth2_creds.inc.php",777);
+    file_put_contents("../cache/oauth2_creds.inc.php",$oauth2_creds);
     unlink("client_id.txt");
     unlink("client_secret.txt");
     unlink("user_name.txt");

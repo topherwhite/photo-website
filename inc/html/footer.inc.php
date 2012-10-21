@@ -9,3 +9,4 @@ document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.
 var pageTracker = _gat._getTracker("<?php echo $GLOBALS['app_google_analytics']; ?>");
 pageTracker._trackPageview();
 </script>
+

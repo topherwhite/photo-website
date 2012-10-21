@@ -1,6 +1,7 @@
 <?php
   require_once("../inc/app.inc.php");
+  $width = 900;
 ?>
-<div class="title-bar">
-<img src="../img/text.php?str=36_700_cccccc_000000_<?php echo $GLOBALS['app_title']; ?>" />
-</div>
+  <a href="../menu/">
+    <div class="title-bar" style="width:<?php echo $width; ?>px;background-image:url(../img/text.php?str=36_<?php echo $width; ?>_cccccc_000000_<?php echo str_replace(" ","+",$GLOBALS['app_title']); ?>);"></div>  
+  </a>

@@ -1,6 +1,6 @@
 <?php
 	
-	header("Location: app/");
+	header("Location: menu/");
 	exit;
 
 ?>

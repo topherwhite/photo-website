@@ -14,3 +14,6 @@
 <script src="../lib/galleriffic/jquery.history.js"></script>
 <script src="../lib/galleriffic/jquery.opacityrollover.js"></script>
 <script type="text/javascript" src="../js/scripts.js"></script>
+<!--[if gte IE 9]>
+  <style type="text/css"> .gradient { filter:none; } </style>
+<![endif]-->

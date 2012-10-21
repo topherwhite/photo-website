@@ -12,7 +12,7 @@ $(document).ready(function($) {
   });
 
   var gallery = $('#thumbs').galleriffic({
-    delay:                     2500,
+    delay:                     slideShowFrameDuration,
     numThumbs:                 10,
     preloadAhead:              0,
     enableTopPager:            false,
@@ -29,10 +29,10 @@ $(document).ready(function($) {
     nextLinkText:              'Next Photo &rsaquo;',
     nextPageLinkText:          'Next &rsaquo;',
     prevPageLinkText:          '&lsaquo; Prev',
-    enableHistory:             true,
-    autoStart:                 false,
+    enableHistory:             slideShowEnableHistory,
+    autoStart:                 slideShowAutoStart,
     syncTransitions:           true,
-    defaultTransitionDuration: 900,
+    defaultTransitionDuration: slideShowTransitionDuration,
     onSlideChange: function(prevIndex, nextIndex) {
       this.find('ul.thumbs').children()
         .eq(prevIndex).fadeTo('fast', onMouseOutOpacity).end()

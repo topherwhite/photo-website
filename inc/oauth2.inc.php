@@ -1,8 +1,8 @@
 <?php
 
-  function oauth2_access_token() {
+  require_once("../cache/oauth2_creds.inc.php");
 
-    require("oauth2_creds.inc.php");
+  function oauth2_access_token() {
 
     $token = $GLOBALS['oauth_access_token'];
 
@@ -26,8 +26,7 @@
             ."\n\$GLOBALS['oauth_token_expiration'] = ".(@mktime() + $creds->expires_in).";"
             ."\n?>";
 
-      file_put_contents("inc/oauth2_creds.inc.php",$oauth2_creds);
-      chmod("inc/oauth2_creds.inc.php",777);
+      file_put_contents("../cache/oauth2_creds.inc.php",$oauth2_creds);
 
       $token = $creds->access_token;
 

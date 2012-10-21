@@ -1,5 +1,31 @@
 body { background-color:black; font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif; }
 
-/*div.controls { display:none; }*/
+div#page { border:0; }
 div.ss-controls { display:none; }
-div.title-bar { width:900px; position:relative; clear:both; margin-left:auto; margin-right:auto; }
+div.title-bar { width:900px; position:relative; clear:both; height:68px; margin-left:auto; margin-right:auto; margin-top:15px; }
+
+div.slideshow-mask { display:none; position:relative; width:100%; height:100%; z-index:1001; border:0; }
+
+div.photo-website-album div.navigation-container { }
+
+div.photo-website-menu div.navigation-container { display:none; }
+div.photo-website-menu div.caption-container { display:none; }
+div.photo-website-menu div.controls { display:none; }
+div.photo-website-menu div.slideshow-container { width:802px; height:632px; }
+div.photo-website-menu div.slideshow a.advance-link { line-height:0px; height:810px; }
+div.photo-website-menu div.slideshow span.image-wrapper { width:802px; }
+div.photo-website-menu div.slideshow img { border:0; }
+div.photo-website-menu div.slideshow-mask { display:block; }
+
+
+
+div.mask-circle {
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPHJhZGlhbEdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iNzUlIj4KICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMCIvPgogICAgPHN0b3Agb2Zmc2V0PSIzMyUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMCIvPgogICAgPHN0b3Agb2Zmc2V0PSI2NyUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDAwMDAwIiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L3JhZGlhbEdyYWRpZW50PgogIDxyZWN0IHg9Ii01MCIgeT0iLTUwIiB3aWR0aD0iMTAxIiBoZWlnaHQ9IjEwMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%, rgba(0,0,0,0) 33%, rgba(0,0,0,1) 67%, rgba(0,0,0,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(0,0,0,0)), color-stop(33%,rgba(0,0,0,0)), color-stop(67%,rgba(0,0,0,1)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 33%,rgba(0,0,0,1) 67%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 33%,rgba(0,0,0,1) 67%,rgba(0,0,0,1) 100%); /* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 33%,rgba(0,0,0,1) 67%,rgba(0,0,0,1) 100%); /* IE10+ */
+  background: radial-gradient(ellipse at center,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 33%,rgba(0,0,0,1) 67%,rgba(0,0,0,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=1 ); /* IE6-8 fallback on horizontal gradient */
+}

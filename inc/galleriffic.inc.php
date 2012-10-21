@@ -2,7 +2,7 @@
   
   require_once("picasa.inc.php");
 
-  function galleriffic_album($title) {
+  function galleriffic_album($title,$size=500,$height=0) {
 
     $html = "<div class=\"navigation-container\">"
         ."<div id=\"thumbs\" class=\"navigation\">"
@@ -13,7 +13,7 @@
     foreach ($albums as $a) {
       $images = fetch_single_album($a["gphoto:id"]["value"]);
       foreach ($images as $i) {
-        $html .= galleriffic_photo(picasa_photo($i));
+        $html .= galleriffic_photo(picasa_photo($i),$size,$height);
       }
     }
 
@@ -27,6 +27,7 @@
           ."<div id=\"controls\" class=\"controls\"></div>"
           ."<div id=\"loading\" class=\"loader\"></div>"
           ."<div id=\"slideshow\" class=\"slideshow\"></div>"
+          ."<div class=\"slideshow-mask mask-circle\"></div>"
         ."</div>"
         ."<div id=\"caption\" class=\"caption-container\">"
           ."<div class=\"photo-index\"></div>"
@@ -38,9 +39,9 @@
     return $html;
   }
 
-  function galleriffic_photo($entry) {
+  function galleriffic_photo($entry,$size,$height=0) {
     $caption = str_replace("\"","\\\"",$entry["caption"]);
-    $orig = "../img/photo.php?id={$entry['id']}.500";
+    $orig = "../img/photo.php?id={$entry['id']}.{$size}"; if (!empty($height)) { $orig .= ".{$height}"; }
     $thmb = "../img/photo.php?id={$entry['id']}.75.75";
     picasa_fetch_data($entry["orig"],"jpg");
     $html = "<li>"
